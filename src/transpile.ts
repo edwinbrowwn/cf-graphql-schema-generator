@@ -265,6 +265,15 @@ const transpile = (
         '_neq: DateTime',
         '_is_null: Boolean',
       ];
+    if (type === 'Boolean')
+      return [
+        '_eq: Boolean',
+        '_contains: String',
+        '_is_empty: Boolean',
+        '_in: [String]',
+        '_not_in: [String]',
+        '_is_null: Boolean',
+      ];
     return [
       '_eq: String',
       '_contains: String',
