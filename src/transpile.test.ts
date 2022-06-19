@@ -138,6 +138,7 @@ describe('transpile', () => {
       }
   
       input UserUpdateInput {
+        id: ID!
         content: String
         name: String
       }
@@ -147,6 +148,7 @@ describe('transpile', () => {
       }
   
       input PostUpdateInput {
+        email: ID!
         content: String
       }
 

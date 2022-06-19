@@ -172,8 +172,9 @@ const transpile = (
         ({name, type}) => `${name}: ${type}`,
       );
 
-      const updateInputFields = fieldsWithoutID.map(
-        ({name, type}) => `${name}: ${removeExclamation(type as string)}`,
+      const updateInputFields = modelFields.map(
+        ({name, type}) =>
+          `${name}: ${removeExclamation(type as string).replace('ID', 'ID!')}`,
       );
 
       return [
@@ -241,7 +242,7 @@ const transpile = (
         '_gte: Int',
         '_lte: Int',
         '_eq: Int',
-        '_neq: Float',
+        '_neq: Int',
         '_is_null: Boolean',
       ];
     if (type === 'Float')
@@ -261,7 +262,7 @@ const transpile = (
         '_gte: DateTime',
         '_lte: DateTime',
         '_eq: DateTime',
-        '_neq: Float',
+        '_neq: DateTime',
         '_is_null: Boolean',
       ];
     return [

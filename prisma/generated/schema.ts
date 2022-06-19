@@ -82,6 +82,7 @@ input UserCreateInput {
 }
 
 input UserUpdateInput {
+  id: ID!
   email: String
   password: String
   name: String
@@ -121,6 +122,7 @@ input NotificationCreateInput {
 }
 
 input NotificationUpdateInput {
+  id: ID!
   token: String
   device: String
   os: String
@@ -135,6 +137,7 @@ input ProfileCreateInput {
 }
 
 input ProfileUpdateInput {
+  id: ID!
   socialId: String
   authType: AuthType
   User: User
@@ -182,6 +185,7 @@ input ReportCreateInput {
 }
 
 input ReportUpdateInput {
+  id: ID!
   report: String
   createdAt: DateTime
   updatedAt: DateTime
@@ -221,6 +225,7 @@ input ChannelCreateInput {
 }
 
 input ChannelUpdateInput {
+  id: ID!
   name: String
   messages: [Message]
   membership: [Membership]
@@ -245,6 +250,7 @@ input MessageCreateInput {
 }
 
 input MessageUpdateInput {
+  id: ID!
   messageType: MessageType
   text: String
   imageUrls: [String]
@@ -272,6 +278,7 @@ input ReplyCreateInput {
 }
 
 input ReplyUpdateInput {
+  id: ID!
   messageType: MessageType
   text: String
   imageUrls: [String]
@@ -292,6 +299,7 @@ input ReactionCreateInput {
 }
 
 input ReactionUpdateInput {
+  id: ID!
   value: String
   user: User
   message: Message
