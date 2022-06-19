@@ -1,4 +1,4 @@
-import parse from './parse';
+import parse, {parseQueryArgs} from './parse';
 
 const prismaSchema = /* Prisma */ `
   enum Role {
@@ -7,10 +7,10 @@ const prismaSchema = /* Prisma */ `
   }
 
   model Post {
-    authorId  Int?
-    content   String?
+    authorId  Int? // @Query
+    content   String? //@Query
     id        Int     @default(autoincrement()) @id
-    published Boolean @default(false)
+    published Boolean @default(false) //                 @Query
     author    User?   @relation(fields: [authorId], references: [id])
   }
   
@@ -38,20 +38,20 @@ describe('DataModel', () => {
       'name',
       'dbName',
       'fields',
-      'isGenerated',
       'primaryKey',
       'uniqueFields',
       'uniqueIndexes',
+      'isGenerated',
     ]);
 
     expect(Object.keys(User)).toEqual([
       'name',
       'dbName',
       'fields',
-      'isGenerated',
       'primaryKey',
       'uniqueFields',
       'uniqueIndexes',
+      'isGenerated',
     ]);
   });
 
@@ -64,5 +64,14 @@ describe('DataModel', () => {
         {name: 'ADMIN', dbName: null},
       ],
     });
+  });
+
+  it('should parse query args', async () => {
+    const queryArgs = parseQueryArgs(prismaSchema);
+    expect(queryArgs).toEqual([
+      {field: 'authorId', type: 'Int', name: 'Post'},
+      {field: 'content', type: 'String', name: 'Post'},
+      {field: 'published', type: 'Boolean', name: 'Post'},
+    ]);
   });
 });

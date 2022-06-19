@@ -35,10 +35,11 @@ generatorHandler({
           recursive: true,
         });
 
-        await fs.promises.writeFile(
-          path.join(output, 'schema.graphql'),
-          result,
-        );
+        let fileName = 'schema.graphql';
+
+        if (config?.format === 'ts') fileName = 'schema.ts';
+
+        await fs.promises.writeFile(path.join(output, fileName), result);
       } catch (e) {
         console.error(
           'Error: unable to write files for GraphQL-Schema-Generator',

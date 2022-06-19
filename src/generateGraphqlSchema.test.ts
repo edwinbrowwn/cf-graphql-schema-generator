@@ -1,4 +1,4 @@
-import parse from './parse';
+import parse, {parseQueryArgs} from './parse';
 import transpile from './transpile';
 import generateGraphqlSchema, {description} from './generateGraphqlSchema';
 
@@ -16,7 +16,7 @@ describe('generateGraphqlSchema', () => {
     async (originalConfig, convertedConfig) => {
       const prismaSchema = /* Prisma */ `
         model Post {
-          id    Int      @id
+          id    Int      @id  // @Query
           content1  Bytes
         }
       `;
@@ -24,7 +24,16 @@ describe('generateGraphqlSchema', () => {
       await generateGraphqlSchema(prismaSchema, originalConfig);
 
       const model = await parse(prismaSchema);
-      expect(transpile).toBeCalledWith(model, convertedConfig);
+      const parsedQueryArgs = parseQueryArgs(prismaSchema);
+      if (originalConfig.createCRUD === 'true') {
+        expect(transpile).toHaveBeenCalledWith(
+          model,
+          convertedConfig,
+          parsedQueryArgs,
+        );
+      } else {
+        expect(transpile).toBeCalledWith(model, convertedConfig);
+      }
     },
   );
 

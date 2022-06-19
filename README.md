@@ -1,9 +1,7 @@
-# GraphQL-Schema-Generator for Prisma
+# GraphQL Schema Generator for Prisma w/ Cloudflare Workers Support
 
 
-[![CI](https://github.com/prisma-korea/graphql-schema-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/prisma-korea/graphql-schema-generator/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/prisma-korea/graphql-schema-generator/branch/master/graph/badge.svg?token=H4VN0S3ES9)](https://codecov.io/gh/prisma-korea/graphql-schema-generator)
-
+[![CI](https://github.com/prisma-korea/graphql-schema-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/edwinbrowwn/cf-graphql-schema-generator/actions/workflows/ci.yml)
 
 Generate **GraphQL schema (SDL)** from **Prisma schema** using a custom Prisma generator.
 
@@ -52,4 +50,4 @@ You can apply custom rules to manipulate behavior. [(Some use cases)](https://gi
 
 ## Contributing
 
-Any contributions are welcome. If you are interested, check out our [guidelines](https://github.com/prisma-korea/graphql-schema-generator/blob/master/CONTRIBUTING.md).
+Any contributions are welcome. If you are interested, check out our [guidelines](https://github.com/edwinbrowwn/cf-graphql-schema-generator//blob/master/CONTRIBUTING.md).

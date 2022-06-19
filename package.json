@@ -1,26 +1,25 @@
 {
-  "name": "@prisma-korea/graphql-schema-generator",
-  "version": "0.3.0",
+  "name": "cf-graphql-schema-generator",
+  "version": "0.1.0",
   "main": "dist-cjs/index.js",
   "types": "dist-cjs/index.d.ts",
   "engines": {
     "node": ">=12.6"
   },
   "scripts": {
-    "dev": "pnpm build && rm -rf prisma/generated && npx prisma generate",
+    "dev": "npm build && rm -rf prisma/generated && npx prisma generate",
     "clean": "rm -rf dist-cjs dist-esm node_modules/.cache",
-    "build": "pnpm clean && tsc --build tsconfig.cjs.json tsconfig.esm.json",
+    "build": "tsc --build tsconfig.cjs.json tsconfig.esm.json",
     "test": "jest",
     "lint": "eslint src --ext .ts,.js"
   },
   "author": "dooboolab <support@dooboolab.com>",
   "maintainers": [
-    "Jayden <jayden@dooboolab.com>",
-    "Hyo <hyo@dooboolab.com>"
+    "Edwin <edwin.dev@hotmail.com>"
   ],
   "sideEffects": false,
   "dependencies": {
-    "@prisma/generator-helper": "^3.5.0",
+    "@prisma/generator-helper": "^3.15.2",
     "@prisma/sdk": "^3.5.0",
     "graphql": "^16.2.0"
   },
@@ -44,8 +43,9 @@
     "jest-plugin-context": "^2.9.0",
     "jest-transform-stub": "^2.0.0",
     "prettier": "^2.5.1",
-    "prisma": "3.4.0",
+    "prisma": "3.15.2",
     "ts-jest": "^27.0.7",
+    "ts-toolbelt": "^9.6.0",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4",
     "typescript-eslint": "^0.0.1-alpha.0"
@@ -61,7 +61,7 @@
   "description": "Generate Graphql schema(SDL) from Prisma schema using Prisma generator.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prisma-korea/graphql-schema-generator.git"
+    "url": "git+https://github.com/edwinbrowwn/cf-graphql-schema-generator.git"
   },
   "keywords": [
     "prisma",
@@ -70,9 +70,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prisma-korea/graphql-schema-generator/issues"
+    "url": "https://github.com/edwinbrowwn/cf-graphql-schema-generator/issues"
   },
-  "homepage": "https://github.com/prisma-korea/graphql-schema-generator#readme",
+  "homepage": "https://github.com/edwinbrowwn/cf-graphql-schema-generator#readme",
   "files": [
     "dist-cjs",
     "dist-esm"
